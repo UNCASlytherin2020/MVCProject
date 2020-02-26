@@ -12,30 +12,31 @@ public class Controller implements MouseInputListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-
+        System.out.println("Clicked");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
-
+        System.out.println("Pressed");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
-
+        System.out.println("Released");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
-
+        System.out.println("Entered");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
+        System.out.println("Exit");
 
     }
 
