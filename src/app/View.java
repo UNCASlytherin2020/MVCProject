@@ -26,6 +26,7 @@ public class View extends JPanel {
     }
 
     protected void paintComponent(Graphics g) {
+        //Should paint the components in model
         Graphics2D g2d = (Graphics2D) g;
         Ellipse2D.Double circle = new Ellipse2D.Double(20, 30, 10, 10);
 
