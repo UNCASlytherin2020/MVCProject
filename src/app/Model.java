@@ -10,7 +10,9 @@ public class Model {
     	asteroids = new Asteroid[5];
         
     }
-    
+    public void deleteAsteroids() {
+    	
+    }
     public void addAsteroids() {
     	if(asteroidCount < 5) {
     		asteroidCount++;
