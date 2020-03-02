@@ -6,5 +6,11 @@ public class App {
         View view = new View(model);
         Controller controller = new Controller(view, model);
         view.registerListener(controller);
+        Player player1 = model.getPlayers()[0];
+        while(true) {
+            player1.update();
+            view.repaint();
+            java.lang.Thread.sleep(10);
+        }
     }
 }
