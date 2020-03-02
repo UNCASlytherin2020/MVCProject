@@ -40,7 +40,7 @@ public class View extends JPanel {
 	 * @param listener
 	 */
 	public void registerListener(Controller listener) {
-		displayPanel.addMouseListener(listener);
+		this.addMouseListener(listener);
 	}
 
 
