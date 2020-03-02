@@ -1,5 +1,6 @@
 package app;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Asteroid extends ModelObject {
@@ -11,7 +12,7 @@ public class Asteroid extends ModelObject {
 
     @Override
     public void draw(Graphics g) {
-
+        
     }
 
 }

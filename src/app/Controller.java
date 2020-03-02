@@ -59,6 +59,7 @@ public class Controller implements MouseInputListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
+        //--------------------------------------PLAYER 1 CONTROLLER START
         Player player1 = model.getPlayers()[0];
         if (e.getKeyChar() == 'w') {
             player1.setYVelocity(-1);
@@ -72,7 +73,7 @@ public class Controller implements MouseInputListener, KeyListener {
         if (e.getKeyChar() == 'd') {
             player1.setXVelocity( 1);
         }
-
+        //--------------------------------------PLAYER 1 CONTROLLER END
     }
 
     @Override
@@ -83,6 +84,7 @@ public class Controller implements MouseInputListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        //--------------------------------------PLAYER 1 CONTROLLER START
         Player player1 = model.getPlayers()[0];
         if (e.getKeyChar() == 'w' && player1.getYVelocity() == -1) {
             player1.setYVelocity(0);
@@ -96,5 +98,6 @@ public class Controller implements MouseInputListener, KeyListener {
         if (e.getKeyChar() == 'd' && player1.getXVelocity() == 1) {
             player1.setXVelocity(0);
         }
+        //--------------------------------------PLAYER 1 CONTROLLER END
     }
 }

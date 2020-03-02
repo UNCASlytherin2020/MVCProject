@@ -9,9 +9,10 @@ public class Model {
     public Model() {
     	asteroidCount=0;
 		asteroids = new Asteroid[5];
-		players = new Player[2];
-		players[0] = new Player(10, 10);
-		playerCount = 1;
+
+		playerCount = 1; //start with one player
+		players = new Player[2]; //allow support for 2 players?
+		players[0] = new Player(10, 10);//initialize a player 1.
         
     }
     public void deleteAsteroids() {
@@ -27,7 +28,10 @@ public class Model {
 	public Player[] getPlayers() {
 		return players;
 	}
-
+	/**
+	 * Gets all the displayable objects in the model for rendering to the view.
+	 * @return - ModelObject array
+	 */
 	public ModelObject[] getObjectsInModel() {
 		ModelObject objects[] = new ModelObject[asteroidCount+playerCount];
 		for (int i = 0; i < playerCount; i++) {
