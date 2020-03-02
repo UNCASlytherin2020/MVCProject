@@ -26,12 +26,12 @@ public class View extends JPanel {
     }
 
     protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
         //Should paint the components in model
-        Graphics2D g2d = (Graphics2D) g;
-        Ellipse2D.Double circle = new Ellipse2D.Double(20, 30, 10, 10);
-
-        g2d.setColor(Color.GRAY);
-        g2d.fill(circle);
+        ModelObject objects[] = model.getObjectsInModel();
+        for (int i = 0; i < objects.length; i++) {
+            objects[i].draw(g);
+        }
     }
 
     /**
@@ -40,7 +40,8 @@ public class View extends JPanel {
 	 * @param listener
 	 */
 	public void registerListener(Controller listener) {
-		this.addMouseListener(listener);
+        frame.addMouseListener(listener);
+        frame.addKeyListener(listener);
 	}
 
 

@@ -59,7 +59,14 @@ public class Controller implements MouseInputListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
+        Player player1 = model.getPlayers()[0];
+        if (e.getKeyChar() == 'w') {
+            player1.setY(player1.getY()-1);
+        }
+        if (e.getKeyChar() == 's') {
+            player1.setY(player1.getY()+1);
+        }
+        view.repaint();
 
     }
 
