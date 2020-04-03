@@ -32,7 +32,10 @@ public class View extends JPanel {
         //Should paint the components in model
         ModelObject objects[] = model.getObjectsInModel(); //get all the ModelObjects in the model
         for (int i = 0; i < objects.length; i++) {
-            objects[i].draw(g);//draw all the objects onto the screen
+            if (objects[i] != null) {
+                
+                objects[i].draw(g);//draw all the objects onto the screen
+            }
         }
     }
 

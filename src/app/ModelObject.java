@@ -9,6 +9,7 @@ public abstract class ModelObject {
     private double yVel;
     private double xAcc;
     private double yAcc;
+    private boolean doDelete = false;
     public double getX() {
         return this.x;
     }
@@ -73,6 +74,12 @@ public abstract class ModelObject {
         this.yAcc = y;
     }
 
+    public void setDoDelete(boolean a) {
+        this.doDelete = a;
+    }
+    public boolean doDelete() {
+        return this.doDelete;
+    }
     public void update() {
         this.xVel += this.xAcc;
         this.yVel += this.yAcc;

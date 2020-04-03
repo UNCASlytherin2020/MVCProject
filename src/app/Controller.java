@@ -17,31 +17,26 @@ public class Controller implements MouseInputListener, KeyListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Clicked");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Pressed");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Released");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Entered");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Exit");
 
     }
 
@@ -53,7 +48,6 @@ public class Controller implements MouseInputListener, KeyListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        System.out.println("moved");
         if (model.getPlayers().length > 0) {
             Player p = model.getPlayers()[0];
             p.setPointerTargetY(e.getY());
@@ -66,20 +60,24 @@ public class Controller implements MouseInputListener, KeyListener {
     public void keyTyped(KeyEvent e) {
         //--------------------------------------PLAYER 1 CONTROLLER START
         Player player1 = model.getPlayers()[0];
+        double newX = player1.getPointerTargetX() - (player1.getX() + (player1.getWidth()/2));
+        double newY = player1.getPointerTargetY() - (player1.getY() + (player1.getHeight()/2));
+        double xS = 0;
+        if (newX != 0) {
+            xS = newX/Math.abs(newY);
+        }
+        double yS = 0;
+        if (newY != 0) {
+            yS = newY/Math.abs(newX);
+        }
         if (e.getKeyChar() == 'w') {
-            double newX = player1.getPointerTargetX() - (player1.getX() + (player1.getWidth()/2));
-            double newY = player1.getPointerTargetY() - (player1.getY() + (player1.getHeight()/2));
             //System.out.println(newX/Math.abs(newX) + " " + newY/Math.abs(newY));
-            double xS = 0;
-            if (newX != 0) {
-                xS = newX/Math.abs(newX);
-            }
-            double yS = 0;
-            if (newY != 0) {
-                yS = newY/Math.abs(newY);
-            }
             player1.setXAcceleration(xS/10);
             player1.setYAcceleration(yS/10);
+        }
+        if (e.getKeyChar() == ' ') {
+            System.out.println(newX + " "+ newY + " " + xS + " " + yS);
+            model.addObject(new Bullet(player1.getX(), player1.getY(), xS, yS));
         }
         //--------------------------------------PLAYER 1 CONTROLLER END
     }
