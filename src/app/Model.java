@@ -1,7 +1,7 @@
 package app;
 
 public class Model {
-	private int maxAsteroidCount = 10;
+	private int maxAsteroidCount = 30;
 	private ModelObject[] asteroids;
 	private int playerCount;
 	private Player[] players;

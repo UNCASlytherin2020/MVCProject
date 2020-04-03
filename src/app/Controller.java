@@ -70,6 +70,11 @@ public class Controller implements MouseInputListener, KeyListener {
         if (newY != 0) {
             yS = newY/Math.abs(newX);
         }
+        if (Math.abs(xS) > Math.abs(yS)) {
+            xS /= Math.abs(xS);
+        } else {
+            yS /= Math.abs(yS);
+        }
         if (e.getKeyChar() == 'w') {
             //System.out.println(newX/Math.abs(newX) + " " + newY/Math.abs(newY));
             player1.setXAcceleration(xS/10);
@@ -77,7 +82,7 @@ public class Controller implements MouseInputListener, KeyListener {
         }
         if (e.getKeyChar() == ' ') {
             System.out.println(newX + " "+ newY + " " + xS + " " + yS);
-            model.addObject(new Bullet(player1.getX(), player1.getY(), xS, yS));
+            model.addObject(new Bullet(player1.getX(), player1.getY(), xS*2, yS*2));
         }
         //--------------------------------------PLAYER 1 CONTROLLER END
     }
@@ -97,5 +102,9 @@ public class Controller implements MouseInputListener, KeyListener {
             player1.setYAcceleration(0);
         }
         //--------------------------------------PLAYER 1 CONTROLLER END
+    }
+
+    public double mapping(double X, double A, double B, double D, double C) {
+        return (X-A)/(B-A) * (D-C) + C;
     }
 }
