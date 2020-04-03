@@ -11,6 +11,7 @@ public class App {
             ModelObject objects[] = model.getObjectsInModel(); //get all the ModelObjects in the model
             for (int i = 0; i < objects.length; i++) {
                 objects[i].update(); //update all model positions and collisions
+                objects[i].onOffScreen(view.getWidth(), view.getHeight());
             }
             view.repaint();//repaint the view so changes will be displayed.
             java.lang.Thread.sleep(1000/60);//unstable 60 FPS, could be adapted to actually check how long each frame takes to run.

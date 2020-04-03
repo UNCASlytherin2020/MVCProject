@@ -79,6 +79,21 @@ public abstract class ModelObject {
         this.x += this.xVel;
         this.y += this.yVel;
     }
+
+    public void onOffScreen(int width, int height) {
+        if (this.x < 0) {
+            this.x = width;
+        }
+        if (this.x > width) {
+            this.x = 0;
+        }
+        if (this.y < 0) {
+            this.y = height;
+        }
+        if (this.y > height) {
+            this.y = 0;
+        }
+    }
     abstract void draw(Graphics g);
 
     
