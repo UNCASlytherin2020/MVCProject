@@ -3,8 +3,12 @@ import java.awt.Graphics;
 public abstract class ModelObject {
     private double x;
     private double y;
+    private double width;
+    private double height;
     private double xVel;
     private double yVel;
+    private double xAcc;
+    private double yAcc;
     public double getX() {
         return this.x;
     }
@@ -19,6 +23,22 @@ public abstract class ModelObject {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public void setWidth(double x) {
+        this.width = x;
+    }
+
+    public void setHeight(double y) {
+        this.height = y;
     }
 
     public double getXVelocity() {
@@ -37,9 +57,29 @@ public abstract class ModelObject {
         this.yVel = y;
     }
 
+    public double getXAcceleration() {
+        return this.xAcc;
+    }
+
+    public double getYAcceleration() {
+        return this.yAcc;
+    }
+
+    public void setXAcceleration(double x) {
+        this.xAcc = x;
+    }
+
+    public void setYAcceleration(double y) {
+        this.yAcc = y;
+    }
+
     public void update() {
+        this.xVel += this.xAcc;
+        this.yVel += this.yAcc;
         this.x += this.xVel;
         this.y += this.yVel;
     }
     abstract void draw(Graphics g);
+
+    
 }

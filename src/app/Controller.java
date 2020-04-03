@@ -53,7 +53,12 @@ public class Controller implements MouseInputListener, KeyListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        // TODO Auto-generated method stub
+        System.out.println("moved");
+        if (model.getPlayers().length > 0) {
+            Player p = model.getPlayers()[0];
+            p.setPointerTargetY(e.getY());
+            p.setPointerTargetX(e.getX());
+        }
 
     }
 
@@ -62,16 +67,19 @@ public class Controller implements MouseInputListener, KeyListener {
         //--------------------------------------PLAYER 1 CONTROLLER START
         Player player1 = model.getPlayers()[0];
         if (e.getKeyChar() == 'w') {
-            player1.setYVelocity(-1);
-        }
-        if (e.getKeyChar() == 's') {
-            player1.setYVelocity( 1);
-        }
-        if (e.getKeyChar() == 'a') {
-            player1.setXVelocity(-1);
-        }
-        if (e.getKeyChar() == 'd') {
-            player1.setXVelocity( 1);
+            double newX = player1.getPointerTargetX() - (player1.getX() + (player1.getWidth()/2));
+            double newY = player1.getPointerTargetY() - (player1.getY() + (player1.getHeight()/2));
+            //System.out.println(newX/Math.abs(newX) + " " + newY/Math.abs(newY));
+            double xS = 0;
+            if (newX != 0) {
+                xS = newX/Math.abs(newX);
+            }
+            double yS = 0;
+            if (newY != 0) {
+                yS = newY/Math.abs(newY);
+            }
+            player1.setXAcceleration(xS/10);
+            player1.setYAcceleration(yS/10);
         }
         //--------------------------------------PLAYER 1 CONTROLLER END
     }
@@ -86,17 +94,9 @@ public class Controller implements MouseInputListener, KeyListener {
     public void keyReleased(KeyEvent e) {
         //--------------------------------------PLAYER 1 CONTROLLER START
         Player player1 = model.getPlayers()[0];
-        if (e.getKeyChar() == 'w' && player1.getYVelocity() == -1) {
-            player1.setYVelocity(0);
-        }
-        if (e.getKeyChar() == 's' && player1.getYVelocity() == 1) {
-            player1.setYVelocity(0);
-        }
-        if (e.getKeyChar() == 'a' && player1.getXVelocity() == -1) {
-            player1.setXVelocity(0);
-        }
-        if (e.getKeyChar() == 'd' && player1.getXVelocity() == 1) {
-            player1.setXVelocity(0);
+        if (e.getKeyChar() == 'w') {
+            player1.setXAcceleration(0);
+            player1.setYAcceleration(0);
         }
         //--------------------------------------PLAYER 1 CONTROLLER END
     }

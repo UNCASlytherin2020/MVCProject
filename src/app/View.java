@@ -43,6 +43,7 @@ public class View extends JPanel {
 	 */
 	public void registerListener(Controller listener) {
         frame.addMouseListener(listener);
+        frame.addMouseMotionListener(listener);
         frame.addKeyListener(listener);
 	}
 

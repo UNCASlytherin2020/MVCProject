@@ -12,7 +12,7 @@ public class Model {
 
 		playerCount = 1; //start with one player
 		players = new Player[2]; //allow support for 2 players?
-		players[0] = new Player(10, 10);//initialize a player 1.
+		players[0] = new Player(100, 100, 50, 50);//initialize a player 1.
         
     }
     public void deleteAsteroids() {
